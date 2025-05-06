@@ -3,11 +3,15 @@
         <link rel="stylesheet" href="index.css">
     </head>
     <body>
-        <h1 id="blackjack-header">Blackjack</h1>
+        <h1>Blackjack</h1>
         <p id="message-el">Want to play a round?</p>
-        <p>Cards:</p>
+        <p id="cards-el">Cards:</p>
         <p id="sum-el">Sum:</p>
         <button onclick="startGame()">START GAME</button>
+        <button onclick="newCard()">NEW CARD</button>
+        <button onclick="passCard()">PASS</button>
+        <p id="player-el"></p>
+        <p id="winloss-el"></p>
         <script src="index.js"></script>
     </body>
 </html>
