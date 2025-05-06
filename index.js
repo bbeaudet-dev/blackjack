@@ -3,25 +3,34 @@ let player = {
     name: "Player",
     chips: 10,
     wins: 0,
-    losses: 0
+    losses: 0,
+    highscore1: 1413364416035100,
+    highscore2: 80262,
+    highscore3: 40232
 }
+
 let cards = []
 let sum = 0
 let hasBlackJack = false
 let isAlive = false
 let isPassed = false
 let permaDeath = false
+
 let message = ""
 let messageEl = document.getElementById("message-el")
 let sumEl = document.getElementById("sum-el")
 let cardsEl = document.getElementById("cards-el")
 let playerEl = document.getElementById("player-el")
+
 let winLossEl = document.getElementById("winloss-el")
 let startButtonEl = document.getElementById("start-button-el")
 let newCardButtonEl = document.getElementById("newcard-button-el")
 let passButtonEl = document.getElementById("pass-button-el")
 updateButtonStates()
 updateStats()
+
+let highscoreEl = document.getElementById("highscore-el")
+highscoreEl.textContent = "High Score: $" + player.highscore1
 
 function startGame() {
     if (permaDeath === false && isAlive === false) {
@@ -76,13 +85,13 @@ function renderGame() {
                 message = "Dealer wins with " + dealerHand
                 isAlive = false
                 console.log("Dealer Wins")
-                updateStats(player.chips = Math.floor(player.chips/2), player.losses += 1)
+                updateStats(player.chips = Math.floor(player.chips/1.75), player.losses += 1)
             } else if (sum > dealerHand) {
                 message = "Dealer has " + dealerHand + ", you win!"
                 hasBlackJack = true // could amend this by adding new beatDealer boolean
                 isAlive = false
                 console.log("Beat Dealer")
-                updateStats(player.chips = Math.ceil(player.chips*2), player.wins += 1)
+                updateStats(player.chips = Math.ceil(player.chips*1.75), player.wins += 1)
             } else {
                 message = "Dealer has " + dealerHand + ", it's a tie!"
                 isAlive = false
@@ -95,7 +104,7 @@ function renderGame() {
         hasBlackJack = true
         isAlive = false
         console.log("Blackjack")
-        updateStats(player.chips = Math.ceil(player.chips*2), player.wins += 1)
+        updateStats(player.chips = Math.ceil(player.chips*1.5), player.wins += 1)
     } else {
         for (let i = 0; i < cards.length; i++) { // turns Ace into a 1 if it would cause you to Bust
             if (cards[i] === 11) {
@@ -108,7 +117,7 @@ function renderGame() {
         message = "You're out of the game!"
         isAlive = false
         console.log("Bust")
-        updateStats(player.chips = Math.floor(player.chips/2), player.losses += 1)
+        updateStats(player.chips = Math.floor(player.chips/1.5), player.losses += 1)
     }
     messageEl.textContent = message
     updateButtonStates()
