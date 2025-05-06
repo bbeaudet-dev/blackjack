@@ -1,4 +1,4 @@
-// INITIALIZATION
+
 let player = {
     name: "Player",
     chips: 10,
