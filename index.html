@@ -1,15 +1,17 @@
 <html>
     <head>
         <link rel="stylesheet" href="index.css">
+        <title>Play Blackjack</title>
+        <link rel="icon" href="spades.ico"
     </head>
     <body>
         <h1>Blackjack</h1>
         <p id="message-el">Want to play a round?</p>
         <p id="cards-el">Cards:</p>
         <p id="sum-el">Sum:</p>
-        <button onclick="startGame()">START GAME</button>
-        <button onclick="newCard()">NEW CARD</button>
-        <button onclick="passCard()">PASS</button>
+        <button id="start-button-el" onclick="startGame()">START GAME</button>
+        <button id="newcard-button-el" onclick="newCard()">NEW CARD</button>
+        <button id="pass-button-el" onclick="passCard()">PASS</button>
         <p id="player-el"></p>
         <p id="winloss-el"></p>
         <script src="index.js"></script>
